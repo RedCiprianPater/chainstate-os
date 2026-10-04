@@ -1,0 +1,9 @@
+mode: local-first
+dry_run: true
+allow_network: false
+allow_shell: false
+allow_filesystem_write: false
+allow_hardware_actuation: false
+require_human_approval: true
+kill_gate_file: /tmp/chainstate-os-kill
+max_action_seconds: 10
