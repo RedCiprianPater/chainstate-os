@@ -1,0 +1,17 @@
+version: 1
+policy: default-deny
+allowed_actions:
+  - read_system_info
+  - emit_diagnostic
+  - create_plan
+  - run_self_test
+restricted_actions:
+  - network_access
+  - filesystem_write
+  - shell_command
+  - package_install
+  - hardware_actuation
+rules:
+  require_human_approval_for_restricted: true
+  require_audit_event: true
+  fail_closed_on_policy_error: true
