@@ -1,0 +1,20 @@
+version: 1
+enabled: true
+mode: monitor-only
+object_dir: /usr/lib/chainstate/ebpf
+manifest: /usr/lib/chainstate/ebpf/manifest.json
+loader: /usr/lib/chainstate/chainstate-ebpf-loader
+
+telemetry:
+  stdout_jsonl: true
+  retain_sensitive_data: false
+  include_file_paths: false
+  syscall_sampling_ratio: 0.0625
+
+safety:
+  ai_can_load_bpf: false
+  ai_can_change_policy: false
+  unsigned_objects: false
+  runtime_compilation: false
+  enforcement_default: false
+  physical_actuation: false
