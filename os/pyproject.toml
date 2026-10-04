@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chainstate-os-runtime"
+version = "0.1.0"
+description = "Fail-closed reference runtime for CHAINSTATE AGI OS"
+requires-python = ">=3.10"
+dependencies = ["PyYAML>=6.0"]
+
+[project.scripts]
+chainstate-os = "chainstate_os.cli:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
