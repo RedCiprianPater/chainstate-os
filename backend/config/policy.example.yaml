@@ -1,0 +1,22 @@
+# Review and customize before production deployment.
+security:
+  fail_closed: true
+  require_https: true
+  deny_seed_phrase_collection: true
+  deny_private_key_collection: true
+  require_replay_protection: true
+  require_idempotency: true
+  require_audit_log: true
+payment:
+  accepted_asset: ETH
+  accepted_chain_ids: [1]
+  required_confirmations: 12
+  quote_ttl_seconds: 900
+installation:
+  require_same_wallet_signature: true
+  require_exact_bundle_digest: true
+  require_signed_release_metadata: true
+  default_allow: false
+physical_actuation:
+  default_allow: false
+  human_approval_required: true
