@@ -1,0 +1,17 @@
+[Unit]
+Description=CHAINSTATE OS reference runtime
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/chainstate-os/os
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/opt/chainstate-os/os/.venv/bin/python -m chainstate_os.cli status
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/chainstate-os/os/audit
+
+[Install]
+WantedBy=multi-user.target
