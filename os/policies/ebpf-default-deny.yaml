@@ -1,0 +1,36 @@
+version: 1
+name: chainstate-ebpf-default-deny
+mode: monitor-only
+
+# The AI runtime is never an eBPF loader principal.
+principals:
+  ai_runtime:
+    bpf_load: false
+    bpf_unload: false
+    bpf_policy_change: false
+
+loader:
+  require_release_manifest: true
+  require_sha256_match: true
+  require_kernel_btf: true
+  allow_unsigned_objects: false
+  allow_runtime_compilation: false
+
+programs:
+  process_monitor: monitor
+  syscall_monitor: monitor
+  network_monitor: monitor
+  filesystem_monitor: monitor
+  security_lsm: disabled
+
+protected_capabilities:
+  credential_use: deny
+  payment_request: deny
+  physical_actuation: deny
+  destructive_filesystem: deny
+  unrestricted_network: deny
+  self_modification: deny
+
+# Any unknown program, hook, object, or profile fails closed.
+unknown_program: deny
+unknown_profile: deny
